@@ -18,5 +18,5 @@ class CheckSum(ICheckSum):
             )
 
         if len(result.items) > 0:
-            return result.items[0]
+            return result.items[-1]
         

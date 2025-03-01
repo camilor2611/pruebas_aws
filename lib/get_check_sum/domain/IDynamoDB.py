@@ -9,5 +9,5 @@ class IDynamoDB(ABC):
         pass
 
     @abstractmethod
-    def get_item_by_file_id_version(self, file_id: str, version: str) -> ItemGetFile | None:
+    def get_item_by_file_id_version(self, file_id: str, version: str) -> ItemGetFiles:
         pass

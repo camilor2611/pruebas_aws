@@ -6,9 +6,11 @@ logging.basicConfig(level=logging.INFO)
 from application.generateCheckSum import GenerateCheckSum
 from application.storage import Storage
 from application.dynamoDB import DynamoDB
+from application.exceptions.custom import exception_decorator
 
 
-def handler(event: Dict, context):
+@exception_decorator
+def main(event):
     records: List = event.get("Records", [])
     if len(records) == 0:
         return {"success": False, "data": []}
@@ -31,6 +33,10 @@ def handler(event: Dict, context):
     generate_check_sum.generate_check_sum(path_file, version_file)
 
     return {"success": True, "data": []}
+
+
+def handler(event: Dict, context):
+    return main(event)
 
 
 if __name__ == "__main__":
