@@ -1,0 +1,6 @@
+{
+  "app": "python deploy.py",
+  "context": {
+        "@aws-cdk/core:bootstrapQualifier": "bcrcprecia"
+    }
+}

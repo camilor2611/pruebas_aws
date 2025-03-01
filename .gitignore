@@ -1,0 +1,35 @@
+# Dependencias
+/node_modules/
+**/node_modules/
+
+
+# Archivos de configuración de IDE y editores
+**/.vscode/
+**/.idea/
+*.sublime-workspace
+
+# Archivos de configuración de entorno
+.env
+
+
+# Archivo de bloqueo de npm
+package-lock.json
+
+# Directorio de caché de npm
+.npm
+
+# Archivos y carpetas generados por herramientas de compilación y publicación
+.DS_Store
+Thumbs.db
+
+# AWS CDK
+/out.json
+/cdk.out
+*/cdk.out
+*/out.json
+
+# Virtual Enviroment Python
+*.venv
+
+# cache python
+*.pyc
