@@ -1,9 +1,11 @@
 from domain.entities.getCheckSum import GetCheckSum
 from application.dynamoDB import DynamoDB
 from application.checkSum import CheckSum
+from application.exceptions.custom import exception_decorator
 
 
-def handler(event, context):
+@exception_decorator
+def main(event):
     event_obj = GetCheckSum(**event)
     dynamo = DynamoDB()
     check = CheckSum(dynamo=dynamo)
@@ -15,6 +17,10 @@ def handler(event, context):
         response["data"] = response_check_sum.model_dump()
 
     return response
+
+
+def handler(event, context):
+    return main(event)
 
 
 if __name__ == "__main__":
