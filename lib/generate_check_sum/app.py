@@ -1,3 +1,4 @@
+import time
 from typing import Dict, List
 import logging
 logging.basicConfig(level=logging.INFO)
@@ -26,6 +27,7 @@ def handler(event: Dict, context):
     storage = Storage()
     dynamo = DynamoDB()
     generate_check_sum = GenerateCheckSum(storage=storage, dynamo=dynamo)
+    time.sleep(10)
     generate_check_sum.generate_check_sum(path_file, version_file)
 
     return {"success": True, "data": []}
