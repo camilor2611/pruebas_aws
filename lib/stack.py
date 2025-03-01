@@ -30,7 +30,11 @@ class StackLambdas(Stack):
             resources=[f"arn:aws:s3:::{context['BUCKET_NAME']}/*"]
         ))
 
-        
+        lambda_load_file_role.add_to_policy(iam.PolicyStatement(
+            actions=["dynamodb:GetItem", "dynamodb:Query"],
+            resources=[f"arn:aws:dynamodb:{context['AWS_REGION_DEPLOY']}:{context['AWS_ACCOUNT_DEPLOY']}:table/{context['DYNAMO_TABLE_NAME']}"]
+        ))
+
         docker_image = DockerImageCode.from_image_asset(directory=prefix_app_load_file, file="Dockerfile")
 
         # Crear la función Lambda
@@ -58,6 +62,11 @@ class StackLambdas(Stack):
         lambda_generate_check_sum_role.add_to_policy(iam.PolicyStatement(
             actions=["s3:GetObject"],
             resources=[f"arn:aws:s3:::{context['BUCKET_NAME']}/*"]
+        ))
+
+        lambda_generate_check_sum_role.add_to_policy(iam.PolicyStatement(
+            actions=["dynamodb:PutItem"],
+            resources=[f"arn:aws:dynamodb:{context['AWS_REGION_DEPLOY']}:{context['AWS_ACCOUNT_DEPLOY']}:table/{context['DYNAMO_TABLE_NAME']}"]
         ))
 
         docker_image = DockerImageCode.from_image_asset(directory=prefix_app_generate_check_sum, file="Dockerfile")
