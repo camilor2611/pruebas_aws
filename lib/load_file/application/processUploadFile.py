@@ -1,14 +1,12 @@
 from datetime import datetime
 import base64
 import hashlib
-import logging
 import uuid
 
 from domain.IStorage import IStorage
 from domain.entities.eventLoadFile import EventLoadFile, ResponseLoadFile
 from domain.IProcessUploadFile import IUploadFile
 from domain.IDynamoDB import IDynamoDB
-from domain.entities.itemDynamo import ItemUploadedFile
 
 
 class UploadFile(IUploadFile):
@@ -29,12 +27,6 @@ class UploadFile(IUploadFile):
             name_file = str(uuid.uuid4())
             timestamp_version  = int(datetime.timestamp(datetime.now()))
             file_path = f"files/{str(timestamp_version)}_{name_file}.{format_file}"
-            # new_item = ItemUploadedFile(
-            #     file_id=file_hash_id,
-            #     path_s3=file_path,
-            #     version=timestamp_version,
-            # )
-            # self.__dynamo.create_item(new_item)
             self.__storage.upload_file(file_path, file_content, content_type)
             response = ResponseLoadFile(
                 file_id=file_hash_id,
