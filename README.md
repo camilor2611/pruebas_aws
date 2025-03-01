@@ -96,7 +96,7 @@ Finalmente, podemos verificar si nuestro archivo ya está registrado en **Dynamo
 ```json
 {
   "file_id": "f16e1ab30c2e9ff43352ee0c5a7d966acb8e2fd0026552d3a887135a3254d8d4",
-  "version": 1740800450
+  "version": null
 }
 ```  
 
