@@ -115,3 +115,27 @@ También se deben eliminar manualmente los siguientes recursos:
 - En **S3**, eliminar el bucket.  
 - En **DynamoDB**, eliminar la tabla.  
 
+# Documentación de Código
+
+Se ha implementado una documentación breve utilizando **DocStrings** compatibles con **Sphinx** en cada **clase abstracta** y en sus respectivos métodos.
+
+# Documentación de Código
+
+Se ha implementado una documentación breve utilizando **DocStrings** compatibles con **Sphinx** en cada **clase abstracta** y en sus respectivos métodos.
+
+## Objetivo
+El propósito de esta documentación es:
+- Evitar la redundancia en las implementaciones concretas.
+- Mejorar la mantenibilidad y legibilidad del código.
+- Facilitar la generación automática de documentación con herramientas como **Sphinx**.
+
+## Beneficios
+- **Estandarización**: Permite una documentación uniforme y clara.
+- **Automatización**: Compatible con herramientas de generación de documentación.
+- **Facilidad de actualización**: Se centraliza la información en las clases base.
+
+## Nota
+Aún no se ha instalado **Sphinx**, pero el código está listo para generar la documentación cuando sea necesario.
+
+Si necesitas más detalles sobre cómo generar la documentación con **Sphinx**, consulta la [documentación oficial](https://www.sphinx-doc.org/).
+
