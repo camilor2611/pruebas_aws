@@ -15,7 +15,7 @@
 6. Crear una tabla en DynamoDB con clave de paticion **file_id (String)**, y clave de ordenación **version (Number)**
 7. Configurar las variables de entorno, para ello se debe crear un archivo .env en la raiz del proyecto con las siguientes variables
 
-```json
+```text
 ENVIRONMENT = "dev"
 AWS_ACCOUNT_DEPLOY = "<NUMERO_DE_CUENTA_AWS>"
 AWS_REGION_DEPLOY = "<REGION_DE_CUENTA_AWS>"
